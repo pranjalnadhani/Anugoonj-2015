@@ -1,21 +1,32 @@
-%p#notice= notice
+.jumbotron
+  %legend
+    %h1
+      College registration details
+      %small
+        for
+        = @college.name
 
-%p
-  %b Name:
-  = @college.name
-%p
-  %b Group name:
-  = @college.group_name
-%p
-  %b Contact no:
-  = @college.contact_no
-%p
-  %b Confirmed:
-  = @college.confirmed
-%p
-  %b Event:
-  = @college.event
+  %p
+    %strong Event:
+    %br
+    = @college.event
+  %p
+    %strong Group name:
+    %br
+    = @college.group_name
+  %p
+    %strong Contact number:
+    %br
+    = @college.contact_no
+  %p
+    %strong Confirmed
+    %br
+    - if @college.confirmed?
+      Yes
+    - else
+      No
 
-= link_to 'Edit', edit_college_path(@college)
-\|
-= link_to 'Back', colleges_path
+  - if admin_signed_in?
+    = link_to "Back", colleges_path, :class => 'btn btn-default'
+    = link_to "Edit", edit_college_path(@college), :class => 'btn btn-default'
+    = link_to "Delete entry", college_path(@college), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

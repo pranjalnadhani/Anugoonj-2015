@@ -1,25 +1,24 @@
-= form_for @college do |f|
-  - if @college.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@college.errors.count, "error")} prohibited this college from being saved:"
-      %ul
-        - @college.errors.full_messages.each do |msg|
-          %li= msg
+= form_for @college, html: { class: "form form-horizontal college" } do |f|
+  .form-group
+    = f.label :event, class: 'control-label col-sm-2'
+    .controls.col-sm-10
+      = f.text_field :event, class: 'form-control', required: true
+    = error_span(@college[:event])
+  .form-group
+    = f.label :name, class: 'control-label col-sm-2'
+    .controls.col-sm-10
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@college[:name])
+  .form-group
+    = f.label :group_name, class: 'control-label col-sm-2'
+    .controls.col-sm-10
+      = f.text_field :group_name, class: 'form-control', required: true
+    = error_span(@college[:group_name])
+  .form-group
+    = f.label :contact_no, class: 'control-label col-sm-2'
+    .controls.col-sm-10
+      = f.text_field :contact_no, class: 'form-control', required: true
+    = error_span(@college[:contact_no])
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :group_name
-    = f.text_field :group_name
-  .field
-    = f.label :contact_no
-    = f.text_field :contact_no
-  .field
-    = f.label :confirmed
-    = f.check_box :confirmed
-  .field
-    = f.label :event
-    = f.text_field :event
-  .actions
-    = f.submit 'Save'
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), colleges_path, :class => 'btn btn-default'

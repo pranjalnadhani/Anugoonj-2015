@@ -1,29 +1,33 @@
-%h1 Listing colleges
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Group name
-      %th Contact no
-      %th Confirmed
-      %th Event
-      %th
-      %th
-      %th
-
-  %tbody
-    - @colleges.each do |college|
+.jumbotron
+  %h1 Manage colleges
+  %table.table.table-hover
+    %thead
       %tr
-        %td= college.name
-        %td= college.group_name
-        %td= college.contact_no
-        %td= college.confirmed
-        %td= college.event
-        %td= link_to 'Show', college
-        %td= link_to 'Edit', edit_college_path(college)
-        %td= link_to 'Destroy', college, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th ID
+        %th Name of college
+        %th Group name
+        %th Contact Number
+        %th Confirmed
+        %th Event
+        %th Created
+        %th Actions
+    %tbody
+      - @colleges.each do |college|
+        %tr
+          %td= link_to college.id, college_path(college)
+          %td= college.name
+          %td= college.group_name
+          %td= college.contact_no
+          %td
+            - if college.confirmed?
+              Yes
+            - else
+              No
+          %td= college.event
+          %td=l college.created_at
+          %td
+            = link_to "Confirm", college.confirm, class: 'btn btn-info btn-sm'
+            = link_to "Edit", edit_college_path(college), class: 'btn btn-warning btn-sm'
+            = link_to "Delete", college_path(college), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 
-%br
-
-= link_to 'New College', new_college_path
+  = link_to "New", new_college_path, :class => 'btn btn-primary'

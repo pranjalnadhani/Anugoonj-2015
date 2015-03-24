@@ -1,5 +1,8 @@
-%h1 New college
-
-= render 'form'
-
-= link_to 'Back', colleges_path
+.jumbotron
+  %legend
+    %h1
+      Register your college
+      %small
+        for
+        = @college.event
+  = render "form"
