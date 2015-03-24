@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  
   root 'home#index'
 
   get '/about/anugoonj'       => 'home#about_anugoonj'
