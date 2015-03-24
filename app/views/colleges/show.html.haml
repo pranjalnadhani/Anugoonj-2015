@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @college.name
+%p
+  %b Group name:
+  = @college.group_name
+%p
+  %b Contact no:
+  = @college.contact_no
+%p
+  %b Confirmed:
+  = @college.confirmed
+%p
+  %b Event:
+  = @college.event
+
+= link_to 'Edit', edit_college_path(@college)
+\|
+= link_to 'Back', colleges_path

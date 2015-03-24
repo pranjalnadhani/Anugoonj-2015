@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :colleges
+
   devise_for :admins
   
   root 'home#index'

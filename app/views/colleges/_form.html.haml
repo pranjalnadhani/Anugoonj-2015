@@ -1,0 +1,25 @@
+= form_for @college do |f|
+  - if @college.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@college.errors.count, "error")} prohibited this college from being saved:"
+      %ul
+        - @college.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :group_name
+    = f.text_field :group_name
+  .field
+    = f.label :contact_no
+    = f.text_field :contact_no
+  .field
+    = f.label :confirmed
+    = f.check_box :confirmed
+  .field
+    = f.label :event
+    = f.text_field :event
+  .actions
+    = f.submit 'Save'

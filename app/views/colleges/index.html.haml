@@ -1,0 +1,29 @@
+%h1 Listing colleges
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Group name
+      %th Contact no
+      %th Confirmed
+      %th Event
+      %th
+      %th
+      %th
+
+  %tbody
+    - @colleges.each do |college|
+      %tr
+        %td= college.name
+        %td= college.group_name
+        %td= college.contact_no
+        %td= college.confirmed
+        %td= college.event
+        %td= link_to 'Show', college
+        %td= link_to 'Edit', edit_college_path(college)
+        %td= link_to 'Destroy', college, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New College', new_college_path
