@@ -1,5 +1,5 @@
 = form_for @college, html: { class: "form form-horizontal college" } do |f|
-  .form-group
+  .form-group.hidden
     = f.label :event, class: 'control-label col-sm-2'
     .controls.col-sm-10
       = f.text_field :event, class: 'form-control', required: true
@@ -20,5 +20,6 @@
       = f.text_field :contact_no, class: 'form-control', required: true
     = error_span(@college[:contact_no])
 
-  = f.submit nil,class: 'btn btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), colleges_path, :class => 'btn btn-default'
+  .pull-right
+    = f.submit "Register college", class: 'btn btn-primary'
+    = link_to "Abort", :back, :class => 'btn btn-warning'

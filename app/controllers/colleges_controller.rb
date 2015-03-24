@@ -15,6 +15,11 @@ class CollegesController < ApplicationController
   # GET /colleges/new
   def new
     @college = College.new
+    if ["poetry_meet", "fusion_of_bands", "short_movie_making", "technical_projects_exhibition"].include? params[:event]
+      @college.event = params[:event]
+    else
+      redirect_to root_path, alert: 'Please select an event.'
+    end
   end
 
   # GET /colleges/1/edit

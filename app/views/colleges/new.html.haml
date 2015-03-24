@@ -1,8 +1,11 @@
-.jumbotron
+= render @college.event
+.col-md-2
+.well.col-md-8
   %legend
     %h1
       Register your college
       %small
         for
-        = @college.event
+        = @college.event.titleize
   = render "form"
+.col-md-2

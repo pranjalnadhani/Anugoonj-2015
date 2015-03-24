@@ -26,7 +26,6 @@
           %td= college.event
           %td=l college.created_at
           %td
-            = link_to "Confirm", college.confirm, class: 'btn btn-info btn-sm'
             = link_to "Edit", edit_college_path(college), class: 'btn btn-warning btn-sm'
             = link_to "Delete", college_path(college), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 

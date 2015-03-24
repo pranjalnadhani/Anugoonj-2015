@@ -43,6 +43,15 @@
               %li= link_to "Intra-college events", events_intra_college_path
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: ""}
+                  Inter-college events
+                  %span.caret
+                %ul.dropdown-menu
+                  %li= link_to "Poetry Meet", new_college_path(event: :poetry_meet)
+                  %li= link_to "Fusion of bands", new_college_path(event: :fusion_of_bands)
+                  %li= link_to "Short Movie Making", new_college_path(event: :short_movie_making)
+                  %li= link_to "Technical Projects Exhibition", new_college_path(event: :technical_projects_exhibition)
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: ""}
                   About
                   %span.caret
                 %ul.dropdown-menu
