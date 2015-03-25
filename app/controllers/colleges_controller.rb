@@ -34,10 +34,10 @@ class CollegesController < ApplicationController
 
     respond_to do |format|
       if @college.save
-        format.html { redirect_to @college, notice: 'College was successfully created.' }
+        format.html { redirect_to @college, notice: 'College was successfully registered.' }
         format.json { render :show, status: :created, location: @college }
       else
-        format.html { render :new, alert: 'Please fill out all the fields' }
+        format.html { render :new }
         format.json { render json: @college.errors, status: :unprocessable_entity }
       end
     end
@@ -48,7 +48,7 @@ class CollegesController < ApplicationController
   def update
     respond_to do |format|
       if @college.update(college_params)
-        format.html { redirect_to @college, notice: 'College was successfully updated.' }
+        format.html { redirect_to @college, notice: 'College details were successfully updated.' }
         format.json { render :show, status: :ok, location: @college }
       else
         format.html { render :edit }
