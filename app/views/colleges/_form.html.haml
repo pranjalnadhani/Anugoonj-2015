@@ -9,23 +9,25 @@
 = form_for @college, html: { class: "form form-horizontal college" } do |f|
   .form-group.hidden
     = f.label :event, class: 'control-label col-sm-3'
-    .controls.col-sm-9
+    .col-sm-9
       = f.text_field :event, class: 'form-control', required: true
     = error_span(@college[:event])
   .form-group
     = f.label :name, class: 'control-label col-sm-3'
-    .controls.col-sm-9
-      = f.text_field :name, class: 'form-control', required: true
+    .col-sm-9
+      = f.text_field :name, class: 'form-control', required: true, placeholder: "Write your full college name"
     = error_span(@college[:name])
   .form-group
     = f.label :group_name, class: 'control-label col-sm-3'
-    .controls.col-sm-9
-      = f.text_field :group_name, class: 'form-control', required: true
+    .col-sm-9
+      = f.text_field :group_name, class: 'form-control', required: true, placeholder: "Give your group/team a name"
     = error_span(@college[:group_name])
   .form-group
     = f.label :contact_no, class: 'control-label col-sm-3'
-    .controls.col-sm-9
-      = f.text_field :contact_no, class: 'form-control', required: true
+    .col-sm-9
+      .input-group
+        .input-group-addon +91
+        = f.text_field :contact_no, class: 'form-control', required: true, placeholder: "The college's contact number."
     = error_span(@college[:contact_no])
 
   .text-right
