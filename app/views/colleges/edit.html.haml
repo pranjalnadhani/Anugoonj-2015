@@ -1,3 +1,10 @@
-.jumbotron
-  %h1 Edit college registration
-= render "form"
+.col-md-2
+.well.col-md-8
+  %legend
+    %h2
+      Edit college registration
+      %small
+        for
+        = @college.event.titleize
+  = render "form"
+.col-md-2
