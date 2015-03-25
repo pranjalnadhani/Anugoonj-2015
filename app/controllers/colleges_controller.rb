@@ -5,7 +5,7 @@ class CollegesController < ApplicationController
   # GET /colleges
   # GET /colleges.json
   def index
-    @colleges = College.all
+    @colleges = College.all(order: 'created_at DESC')
   end
 
   # GET /colleges/1
