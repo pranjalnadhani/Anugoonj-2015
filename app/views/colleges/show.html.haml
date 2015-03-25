@@ -4,27 +4,32 @@
       College registration details
       %small
         for
-        = @college.name
+        = @college.event.titleize
 
   %p
-    %strong Event:
+    %strong College name
     %br
-    = @college.event.titleize
+    = @college.name
   %p
-    %strong Group name:
+    %strong Group name
     %br
     = @college.group_name
   %p
-    %strong Contact number:
+    %strong Contact number
     %br
     = @college.contact_no
+  - if admin_signed_in?
+    %p
+      %strong Confirmed
+      %br
+      - if @college.confirmed?
+        Yes
+      - else
+        No
+
   %p
-    %strong Confirmed
-    %br
-    - if @college.confirmed?
-      Yes
-    - else
-      No
+    %strong Note: 
+    Each participant would receive an email from us, once the registration entry is confirmed.
 
   - if admin_signed_in?
     = link_to "Back", colleges_path, :class => 'btn btn-default'

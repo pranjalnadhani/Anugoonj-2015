@@ -1,5 +1,6 @@
 class CollegesController < ApplicationController
   before_action :set_college, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_admin!, except: [:new, :create, :show]
 
   # GET /colleges
   # GET /colleges.json
@@ -36,7 +37,7 @@ class CollegesController < ApplicationController
         format.html { redirect_to @college, notice: 'College was successfully created.' }
         format.json { render :show, status: :created, location: @college }
       else
-        format.html { render :new }
+        format.html { render :new, alert: 'Please fill out all the fields' }
         format.json { render json: @college.errors, status: :unprocessable_entity }
       end
     end

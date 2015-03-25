@@ -1,25 +1,33 @@
+- if @college.errors.any?
+  .alert.alert-danger
+    %h3
+      = pluralize(@college.errors.count, "error")
+      prohibited this college from being registered:
+    %ol
+      - @college.errors.full_messages.each do |msg|
+        %li= msg
 = form_for @college, html: { class: "form form-horizontal college" } do |f|
   .form-group.hidden
-    = f.label :event, class: 'control-label col-sm-2'
-    .controls.col-sm-10
+    = f.label :event, class: 'control-label col-sm-3'
+    .controls.col-sm-9
       = f.text_field :event, class: 'form-control', required: true
     = error_span(@college[:event])
   .form-group
-    = f.label :name, class: 'control-label col-sm-2'
-    .controls.col-sm-10
+    = f.label :name, class: 'control-label col-sm-3'
+    .controls.col-sm-9
       = f.text_field :name, class: 'form-control', required: true
     = error_span(@college[:name])
   .form-group
-    = f.label :group_name, class: 'control-label col-sm-2'
-    .controls.col-sm-10
+    = f.label :group_name, class: 'control-label col-sm-3'
+    .controls.col-sm-9
       = f.text_field :group_name, class: 'form-control', required: true
     = error_span(@college[:group_name])
   .form-group
-    = f.label :contact_no, class: 'control-label col-sm-2'
-    .controls.col-sm-10
+    = f.label :contact_no, class: 'control-label col-sm-3'
+    .controls.col-sm-9
       = f.text_field :contact_no, class: 'form-control', required: true
     = error_span(@college[:contact_no])
 
-  .pull-right
+  .text-right
     = f.submit "Register college", class: 'btn btn-primary'
     = link_to "Abort", :back, :class => 'btn btn-warning'

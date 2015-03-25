@@ -21,3 +21,19 @@
 
 en:
   hello: "Hello world"
+  
+  activerecord:
+    attributes:
+      college:
+        name: "College name"
+        group_name: "Group name"
+        contact_no: "Contact number"
+    errors:
+      models:
+        college:
+          attributes:
+            contact_no:
+              wrong_length: "should be %{count} digits long."
+              not_a_number: "is not numeric."
+              
+        

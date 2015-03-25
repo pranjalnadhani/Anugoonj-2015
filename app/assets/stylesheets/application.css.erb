@@ -17,8 +17,8 @@
 body {
   padding-top: 60px;
   background-image: url('<%= asset_path('collage/background.jpg') %>');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-repeat: repeat-y;;
+  background-size: 100%;
   background-attachment: fixed;
 }
 
@@ -34,6 +34,13 @@ body {
   font-family: 'Bleeding Cowboys';
   src: url('<%= font_path("bleeding_cowboys.ttf") %>') format('truetype');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('<%= font_path("ubuntu.woff") %>') format('woff');
+  font-weight: 400;
   font-style: normal;
 }
 
