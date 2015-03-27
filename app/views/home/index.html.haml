@@ -1,4 +1,35 @@
-.jumbotron
-  %h1 
-    We're under construction
-  %p Please come back later!
+#anugoonj-carousel.carousel.slide
+  / Indicators
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#anugoonj-carousel"}
+    %li{"data-slide-to" => "1", "data-target" => "#anugoonj-carousel"}
+    %li{"data-slide-to" => "2", "data-target" => "#anugoonj-carousel"}
+    %li{"data-slide-to" => "3", "data-target" => "#anugoonj-carousel"}
+    %li{"data-slide-to" => "4", "data-target" => "#anugoonj-carousel"}
+  / Wrapper for slides
+  .carousel-inner
+    .item.active
+      %img{:alt => "", :src => "#{asset_path('banner/1.jpg')}"}
+        .carousel-caption
+          %h1#banner1 Anugoonj 2015
+    .item
+      %img{:alt => "", :src => "#{asset_path('banner/2.jpg')}"}
+        .carousel-caption
+          %h1#banner1 Anugoonj 2015
+    .item
+      %img{:alt => "", :src => "#{asset_path('banner/3.jpg')}"}
+        .carousel-caption
+          %h1#banner1 Anugoonj 2015
+    .item
+      %img{:alt => "", :src => "#{asset_path('banner/4.jpg')}"}
+        .carousel-caption
+          %h1#banner1 Anugoonj 2015
+    .item
+      %img{:alt => "", :src => "#{asset_path('banner/5.jpg')}"}
+        .carousel-caption
+          %h1#banner1 Anugoonj 2015
+  / Controls
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#anugoonj-carousel"}
+    %span.icon-prev
+  %a.right.carousel-control{"data-slide" => "next", :href => "#anugoonj-carousel"}
+    %span.icon-next
