@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :colleges
+
+  resources :colleges do
+    resources :participants
+  end
 
   devise_for :admins
   
@@ -9,6 +12,7 @@ Rails.application.routes.draw do
   get '/about/college'        => 'home#about_college'
   get '/about/coordinators'   => 'home#coordinators'
   get '/events/intra-college' => 'home#intra_college_events'
+  get '/facebook'             => 'https://www.facebook.com/RITAnugoonj'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

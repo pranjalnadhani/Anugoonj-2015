@@ -36,3 +36,23 @@
       %strong Note: 
       Each participant would receive an email from us, once the registration entry is confirmed.
 
+.row
+  .col-md-2
+  .well.col-md-8
+    %legend
+      %h2 List of participants
+
+    - if @college.participants.size > 0
+      %table.table.table-hover
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Contact number
+        %tbody
+          - @college.participants.each do |participant|
+            %tr
+              %td= participant.name
+              %td= participant.email
+              %td= "+91" + "#{ participant.contact_no }"
+  .col-md-2
